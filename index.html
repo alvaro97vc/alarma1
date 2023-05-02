@@ -1,12 +1,25 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Página de inicio</title>
-    <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
-    <h1>Bienvenido al servidor de alarma</h1>
-    <p>Envía un POST a /alarma para reproducir un clip de audio</p>
-  </body>
+<head>
+	<title>Alarma</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+	<h1>Alarma</h1>
+	<button onclick="playAudio()">Reproducir sonido</button>
+	<audio id="myAudio">
+		<source src="alarma1.mp3" type="audio/mpeg">
+	</audio>
+	<script>
+		var audio = document.getElementById("myAudio");
+		function playAudio() {
+			if (audio.paused) {
+				audio.play();
+			} else {
+				audio.currentTime = 0;
+			}
+		}
+	</script>
+</body>
 </html>
