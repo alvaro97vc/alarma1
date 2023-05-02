@@ -11,17 +11,14 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Manejador para la ruta principal (GET '/')
 app.get('/', (req, res) => {
-    // Obtener el token del header de la petición
-    const token = req.headers['authorization'];
-    
-    // Comprobar si el token es válido
-    if (token !== 'TU_TOKEN') {
-      return res.status(401).send('Acceso no autorizado');
-    }
-    
-    // Si el token es válido, enviar el archivo HTML
+  // Verificar si el token es correcto
+  const reqToken = req.query.token;
+  if (reqToken === TOKEN) {
     res.sendFile(path.join(__dirname, 'index.html'));
-  });
+  } else {
+    res.status(401).send('Unauthorized');
+  }
+});
   
 
 // Manejador para la ruta de alarma (POST '/alarma')
