@@ -11,11 +11,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Manejador para la ruta principal (GET '/')
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
+  exec('start alarma1.mp3');
+
 });
 
 // Manejador para la ruta de alarma (POST '/alarma')
 app.post('/alarma', (req, res) => {
-  exec('start alarma1.mp3');
   res.send('¡Alarma sonando! ');
 });
 
