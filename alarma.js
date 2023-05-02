@@ -16,7 +16,7 @@ app.get('/', (req, res) => {
 // Manejador para la ruta de alarma (POST '/alarma')
 app.post('/alarma', (req, res) => {
   exec('start alarma1.mp3');
-  res.send('¡Alarma sonando!');
+  res.send('¡Alarma sonando! ');
 });
 
 // Inicio del servidor
