@@ -16,6 +16,7 @@ app.get('/', (req, res) => {
   if (reqToken === TOKEN) {
     res.sendFile(path.join(__dirname, 'index.html'));
   } else {
+    console.log("OK");
     res.status(401).send('Unauthorized');
   }
 });
