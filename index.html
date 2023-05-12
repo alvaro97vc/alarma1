@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>My Webpage</title>
+  <title>Alarma</title>
+  <script src="/socket.io/socket.io.js"></script> <!-- Agrega esta línea -->
 </head>
 <body>
-	<h1>Welcome to my webpage!</h1>
-	<audio id="my-audio">
-		<source src="alarma1.mp3" type="audio/mp3">
-	</audio>
-	<script>
-		window.onload = function() {
-			var audio = document.getElementById("my-audio");
-			audio.play();
-		}
-	</script>
+  <h1>Alarma</h1>
+  <button onclick="sonarAlarma()">¡Hacer sonar la alarma!</button> <!-- Agrega este botón -->
+  <script>
+    // Establecer una conexión de WebSocket
+    const socket = io();
+
+    // Función para enviar el evento 'sonarAlarma' al servidor
+    function sonarAlarma() {
+      socket.emit('sonarAlarma');
+    }
+  </script>
 </body>
 </html>
