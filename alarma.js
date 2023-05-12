@@ -24,7 +24,7 @@ app.get('/alarma', (req, res) => {
   io.emit('sonarAlarma');
 });
 
-// Manejador de eventos de WebSocket
+// Manejador de eventos de WebSocket.
 io.on('connection', (socket) => {
   console.log('Un nuevo cliente se ha conectado.');
 
